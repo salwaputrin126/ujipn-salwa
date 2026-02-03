@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SiswaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -27,6 +28,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Routing untuk admin
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardAdmin::class, 'index'])->name('dashboard');
+    Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa');
 });
 
 // Routing untuk siswa

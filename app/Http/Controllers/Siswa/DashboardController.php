@@ -38,4 +38,24 @@ class DashboardController extends Controller
         ];
         return view('siswa.form-aspirasi', $data);
     }
+
+    public function simpanAspirasi(Request $request)
+    {
+        $validatedData = $request->validate([
+            'siswa_id' => 'required',
+            'kategori_id' => 'required',
+            'judul' => 'required',
+            'isi' => 'required',
+        ], [
+            'siswa_id' => 'Id siswa tidak ditemukan!',
+            'kategori_id' => 'Kategori harus dipilih!',
+            'judul' => 'Judul harus diisi!',
+            'isi' => 'Isi pesan/aduan harus diisi!',
+        ]);
+
+        $validatedData['status'] = 'menunggu';
+
+        Aspirasi::create($validatedData);
+        return redirect()->route('siswa.dashboard');
+    }
 }
