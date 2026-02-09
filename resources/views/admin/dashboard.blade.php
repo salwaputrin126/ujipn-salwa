@@ -40,7 +40,8 @@
                                 <td>{{ $item->judul }}</td>
                                 <td>{{ $item->kategori->nama_kategori }}</td>
                                 <td><span class="status {{ $item->status }}"
-                                        style="text-transform: capitalize;">{{ $item->status }}</span></td>
+                                    style="text-transform: capitalize;">{{ $item->status }}</span>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

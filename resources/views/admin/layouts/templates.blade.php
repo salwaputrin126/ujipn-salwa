@@ -69,6 +69,7 @@
         });
     </script>
 
+    <script script="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 </body>
 
 </html>
